@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      《深入理解计算机系统》学习笔记(二) | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="第二章 信息的表示和处理现代计算机存储和处理的信息以二值信号表示。  二值信号能够很容易地被表示、 存储和传输， 例如， 可以表示为穿孔卡片上有洞或无洞、 导线上的高电压或低电压， 或者顺时针或逆时针的磁场。 对 二值信号进行存储和执行计算的电子电路非常简单和可靠， 制造商能够在一个单独的硅片上集成数百万甚至数十亿个这样的电路。孤立地讲， 单个的位不是非常有用。 然而， 当把位组合在一起， 再加上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入理解计算机系统》学习笔记(二) | Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/01/31/《深入理解计算机系统》学习笔记-二/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章 信息的表示和处理现代计算机存储和处理的信息以二值信号表示。  二值信号能够很容易地被表示、 存储和传输， 例如， 可以表示为穿孔卡片上有洞或无洞、 导线上的高电压或低电压， 或者顺时针或逆时针的磁场。 对 二值信号进行存储和执行计算的电子电路非常简单和可靠， 制造商能够在一个单独的硅片上集成数百万甚至数十亿个这样的电路。孤立地讲， 单个的位不是非常有用。 然而， 当把位组合在一起， 再加上">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-31T10:54:24.811Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《深入理解计算机系统》学习笔记(二) | Hexo">
+<meta name="twitter:description" content="第二章 信息的表示和处理现代计算机存储和处理的信息以二值信号表示。  二值信号能够很容易地被表示、 存储和传输， 例如， 可以表示为穿孔卡片上有洞或无洞、 导线上的高电压或低电压， 或者顺时针或逆时针的磁场。 对 二值信号进行存储和执行计算的电子电路非常简单和可靠， 制造商能够在一个单独的硅片上集成数百万甚至数十亿个这样的电路。孤立地讲， 单个的位不是非常有用。 然而， 当把位组合在一起， 再加上">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">《深入理解计算机系统》学习笔记(二)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-01-31" class="post-meta__date date">2019-01-31</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="第二章-信息的表示和处理"><a href="#第二章-信息的表示和处理" class="headerlink" title="第二章 信息的表示和处理"></a>第二章 信息的表示和处理</h1><p>现代计算机存储和处理的信息以二值信号表示。</p>
+<ul>
+<li><strong>二值信号能够很容易地被表示、 存储和传输</strong>， 例如， 可以表示为穿孔卡片上有洞或无洞、 导线上的高电压或低电压， 或者顺时针或逆时针的磁场。 对 二值信号进行存储和执行计算的电子电路非常简单和可靠， 制造商能够在一个单独的硅片上集成数百万甚至数十亿个这样的电路。<br>孤立地讲， 单个的位不是非常有用。 然而， 当把位组合在一起， 再加上某种解释(interpretation) , 即赋予不同的可能位模式以含意， 我们就能够表示任何有限集合的元素。<br>三种最重要的数字表示：<strong>无符号/补码/浮点数编码</strong></li>
+<li><strong>无符号编码</strong>：基于传统的二进制表示法，表示大于或者等于零的数字。 </li>
+<li><strong>补码编码</strong>：表示有符号整数的最常见的方式， 有符号整数就是可以为正或者为负的数字。</li>
+<li><strong>浮点数编码</strong>：表示实数的科学记数法的以 2为基数的版本。<br><em>溢出</em>：计算机的表示法是用有限数量的位来对一个数字编码， 因此， 当结果太大以至不能表 示时， 某些运算就会溢出(overflow)。<br>整数只能编码一个相对较小的数值范围，但是精确；浮点数可以编码一个较大的数值范围，但这种表示只能是近似。<br>大量计算机的安全漏洞都是由于计算机算术运算的微妙细节引发的。<br>计算机用几种不同的二进制表示形式来编码数值。<h2 id="2-1-信息存储"><a href="#2-1-信息存储" class="headerlink" title="2.1 信息存储"></a>2.1 信息存储</h2></li>
+<li><strong>虚拟内存</strong>(virtual memory)：机器级程序将内存视为一个非常大的字节数组。</li>
+<li><strong>地址</strong> (address)：内存的每个字节都由一个唯一的数字来标识，称为它的地址。</li>
+<li><strong>虚拟地址空间</strong> (virtual address space)：所有可能地址的集合。（一个展现给机器级程序的概念性映像）</li>
+<li><strong>程序对象</strong>（program object)，即程序数据、 指令和控制信息。</li>
+</ul>
+<h3 id="2-1-1-十六进制表示法"><a href="#2-1-1-十六进制表示法" class="headerlink" title="2.1.1 十六进制表示法"></a>2.1.1 十六进制表示法</h3><ul>
+<li>二进制值域：00000000（2）-11111111（2）       0（10）-256（10）</li>
+<li>十六进制（简写为”hex”)使用数字’O’- ‘9’以及字符 ‘A’- ‘F’（<em>大小写不限 可混合</em>）来表示16个可能的值。[在C语言中，以Ox或 ox 开头的数字常量被认为是十六进制的值。]</li>
+</ul>
+<p>编写机器级程序的一个常见任务就是在位模式的十进制、 二进制和十六进制表示之间人工转换。</p>
+<ol>
+<li><p>十六进制-&gt;二进制<br>一个简单的窍门是，记住十六进制 数字A 、C和F 相应的十进制值。</p>
+</li>
+<li><p>如果给定一个二进制数字可以通过首先把它分为 每4位一组来转换为十六进制。[如果位总数不是4的倍数，最左边的一组可以少千4位，前面用0补足。然后将每个4位组转换为相应的十六进制数字]</p>
+</li>
+<li><p>2^n-&gt;十六进制 n=i+4<em> j 1(i=0) 2(i=1) 4(i=2) 8(i=3)<br>如2^11 n=11=3+4</em> 2     0x800</p>
+</li>
+<li><p>十进制-&gt;十六进制<br>反复用16除x(q) 得到商q和余数r<br>r表示最低位数字</p>
+</li>
+</ol>
+<h3 id="2-1-2字数据大小"><a href="#2-1-2字数据大小" class="headerlink" title="2.1.2字数据大小"></a>2.1.2字数据大小</h3><ul>
+<li>每台计算机都有一个<strong>字长(word size)</strong>, 指明指针数据的<strong>标称大小</strong>(nominal size)。</li>
+</ul>
+<p>虚拟地址是以 这样的一个字来编码的，所以字长决定的最重要的系统参数就是虚拟地址空间的最大大小。</p>
+<ul>
+<li><p>对于一个字长为w位的机器而言，虚拟地址的范围为0-2^w- 1, 程序最多访问2^w个字节。</p>
+</li>
+<li><p>计算机和编译器支持多种不同方式编码的数字格式，如不同长度的整数和浮点数。</p>
+</li>
+</ul>
+<p>为了避免由于<em>依赖大小和不同编译器设置</em>带来的奇怪行为，ISO C99 引入了一类数据类型，其数据大小是固定的，不随编译器和机器设置而变化。其中就有数据类型<strong>int32_t</strong>和<strong>int64_t</strong>, 它们分别是4个字节和8个字节。</p>
+<p><em>大部分数据类型</em>都编码为有符号数值，除非有前缀关键字 <strong>unsigned</strong> 或对确定大小的数据类型使用了特定的无符号声明。数据类型 <strong>char</strong> 是一个例外。尽管大多数编译器和机器将它们视为有符号数，但C标准不保证这一点。相反，正如方括号指示的那样，程序员应该用有符号字符的声明来保证其为一个字节的有符号数值。不过，在很多情况下，程序 行为对数据类型 char 是有符号的还是无符号的并不敏感。</p>
+<p>对关键字的<em>顺序</em>以及<em>包括还是省略</em>可选关键字来说，C语言允许存在多种形式。比如，下面所有的声明都是一个意思：<br>unsigned long<br>unsigned long int<br>long unsigned<br>long unsigned int </p>
+<ul>
+<li>可移植性的一个方面就是使程序对不同数据类型的确切大小不敏感。</li>
+<li>C语言标准对不同数据类型的数字范围设置了下界，但是却没有上界。</li>
+</ul>
+<h2 id="2-1-3-寻址和字节顺序"><a href="#2-1-3-寻址和字节顺序" class="headerlink" title="2.1.3 寻址和字节顺序"></a>2.1.3 寻址和字节顺序</h2><ul>
+<li><p>对于跨越多字节的程序对象， 我们必须建立两个规则： 这个对象的地址是什么， 以及在内存中如何排列这些字节。<br>在几乎所有的机器上， 多字节对象都被存储为连续的字节序列， 对象的地址为所使用字节中最小的地址。</p>
+<h4 id="2-1-3-1-大端法-小端法"><a href="#2-1-3-1-大端法-小端法" class="headerlink" title="2.1.3.1 大端法 小端法"></a>2.1.3.1 大端法 小端法</h4><p>某些机器选择在内存中按照从最低有效字节到最高有效字节的顺序存储对象， 而另一些机器则按照从最高有效字节到最低有效字节的顺序存储。 前 一种规则——最低有效字节在最前面的方式， 称为小端法Clittle endian)。后一种规则—-—最高有效字节在最前面的方式， 称为大端法(big endian)。</p>
+<ul>
+<li>大端法(big endian）<br>最高有效字节在最前面的方式称为大端法，例如假设变量x类型为int型，位于地址0x100的地方，其16进制值为0x12345678，地址范围为0x100到0x103字节。<br>对于大端法的机器来说：<br>0x100  0x101  0x102  0x103<br>12     &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 34      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78<br>由上图可见，地址从左向右增长，x的最高有效字节12在最前面存储。这正好和我们平时书写习惯一致，先书写最高有效字节，再依次写其余字节。</li>
+</ul>
+</li>
+<li><p>小端法（little endian)<br>最低有效字节在最前面的方式成为小端法，这正好和大端法相反，仍然用大端法中举的例子说明：<br>0x100 0x101 0x102 0x103<br>78   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 56     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12<br>由上图可见，地址依然从左向右增长，x的最低有效字节在最前面存储，与大端法相反。</p>
+</li>
+</ul>
+<p>大多数Intel兼容机都只用小端模式。 另 一方面， IBM和Oracle(从其2010年收购Sun Microsystems开始）的 大多数机器则是按大端模式操作。 注意我们说的是 “ 大多数 ”。 这些规则并没有严格按照企业界限来划分。 比如， IBM和Oracle制造的个人计算机使用 的是Intel兼容的处理器， 因此使用小端法。 许多比较新的微处理器是双端法(bi-endian) , 也就是说可以把它们配置成作为大端或者小端的机器运行。 <em> 然而，</em>实际情况*是： 一旦选择了<strong>特定操作系统</strong>，那么字节顺序也就固定下来。</p>
+<ul>
+<li>Android过（ 来自Google)和IOS(来自Apple)——却只能运行于小端模式。</li>
+</ul>
+<h4 id="2-1-3-2-字节顺序成为问题的几种情况"><a href="#2-1-3-2-字节顺序成为问题的几种情况" class="headerlink" title="2.1.3.2 字节顺序成为问题的几种情况"></a>2.1.3.2 字节顺序成为问题的几种情况</h4><ol>
+<li>首先，是在不同类型的机器之间通过网络传送二进制数据时， 一个常见的问题是当小端法机器产生的数据被发送到大端法机器或者反过来时， 接收程序会发现， 字里的字节成了反序的。</li>
+</ol>
+<p>为了避免这类问题， 网络应用程序的代码编写必须遵守已建立的关于字节顺序的规则， 以 确保发送方机器将它的内部表示转换成网络标准， 而接收方机器则将网络标准转换为它的 内部表示。 </p>
+<ol start="2">
+<li>第二种情况是， 当阅读表示整数数据的字节序列时字节顺序也很重要。[这通常发生在检查机器级程序时。 ]</li>
+</ol>
+<ul>
+<li><em>反汇编器(disassembler)</em> ：一种确定可执行程序文件所表示的指令序列的工具。 </li>
+<li>书写字节序列的自然方式是最低位字节在左边， 而最高位字节在右边， 这正好和通常书写数字时最高 有效位在左边， 最低有效位在右边的方式相反。</li>
+</ul>
+<ol start="3">
+<li>第三种情况是当编写规避正常的类型系统的程序时。<br>在C语言中， 可以通过使用强制类型转换(cast) 或联合(union)来允许以一种数据类型引用一个对象， 而这种数据类型与创建这个对象时定义的数据类型不同。</li>
+</ol>
+<p>C 语言中的 typedef 声明提供了一种给数据类型命名的方式。这能够极大地改善代<br>码的可读性，因为深度嵌套的类型声明很难读懂。</p>
+<h3 id="2-1-4-表示字符串"><a href="#2-1-4-表示字符串" class="headerlink" title="2.1.4 表示字符串"></a>2.1.4 表示字符串</h3><p>C语言中字符串被编码为一个以null(其值为0)字符结尾的字符数组。 每个字符都由某个标准编码来表示， 最常见的是ASCII字符码。</p>
+<h3 id="2-1-5-表示代码"><a href="#2-1-5-表示代码" class="headerlink" title="2.1.5 表示代码"></a>2.1.5 表示代码</h3><p>不同的机器类型使用不同的且不兼容的指令和编码方式。即使是完全一样的进程，运行在不同的操作系统上也会有不同的编码规则，因此二进制代码是不兼容的。二进制代码很少能在不同机器和操作系统组合之间移植。<br>计算机系统的一个基本概念就是，从机器的角度来看，程序仅仅只是字节序列。机器没有关于原始源程序的任何信息，除了可能有些用来帮助调试的辅助表以外。</p>
+<h3 id="2-1-6-布尔代数简介"><a href="#2-1-6-布尔代数简介" class="headerlink" title="2.1.6 布尔代数简介"></a>2.1.6 布尔代数简介</h3><ul>
+<li>二进制值是计算机编码、存储和操作信息的核心。</li>
+</ul>
+<p>通过将逻辑值TURE（真)和FALSE（假）编码为二进制值1和0，能设计出一种代数，以研究逻辑推理的基本原则。</p>
+<ul>
+<li>布尔代数 ~ 对应于 （逻辑运算)NOT (命题运算)  ﹁<br>布尔代数 &amp; 对应于 （逻辑运算)AND (命题运算)  ∨<br>布尔代数  |  对应于 （逻辑运算)OR (命题运算)  ∨<br>布尔代数  ^  对应于 （逻辑运算)异或 (命题运算)  ⊕</li>
+</ul>
+<p>布尔运算扩展到位向量的运算<br>假设w = 4, 参数a =[0110], b =[1100]。那么4种运算a&amp;b、alb、a^b 和~b 分别得到以下结果：<br>&#160;&#160;&#160;0110&#160;&#160;0110&#160;&#160;&#160;0110&#160;&#160;<br>&amp;1100&#160;|1100&#160;^1100&#160;&#160;~1100<br>&#160;0100&#160;&#160;&#160;&#160;1110&#160;&#160;&#160;1010&#160;&#160;&#160;&#160;&#160;0011</p>
+<p>布尔运算&amp;对 | 分配律<br>布尔运算 | 对&amp;分配律<br>布尔环 a^a=0</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
