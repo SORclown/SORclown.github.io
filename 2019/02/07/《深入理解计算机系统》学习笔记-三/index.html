@@ -24,8 +24,8 @@
 <meta property="og:description" content="2.1.7 C语言中的位级运算1.C语言支持按位布尔运算。2.确定位级表达式的结果最好的方法，就是将十六进制的参数扩展成二进制表示并执行二进制运算，然后再转换回十六进制。 2.1.8 C语言中的逻辑运算逻辑运算与位级运算的区别 逻辑运算认为所有非零的参数都表示TRUE,参数0表示FALSE.它们返回1或者0，分别表示结果为TURE或者为FALSE.按位运算只有在特殊情况下，也就是参数被限制为0或者">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/02/08/5c5cf73d87a1b.png">
-<meta property="og:image" content="en-resource://database/1025:1">
-<meta property="og:updated_time" content="2019-02-08T03:29:09.267Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5cf73d97774.png">
+<meta property="og:updated_time" content="2019-02-08T03:32:52.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解计算机系统》学习笔记-三 | Hexo">
 <meta name="twitter:description" content="2.1.7 C语言中的位级运算1.C语言支持按位布尔运算。2.确定位级表达式的结果最好的方法，就是将十六进制的参数扩展成二进制表示并执行二进制运算，然后再转换回十六进制。 2.1.8 C语言中的逻辑运算逻辑运算与位级运算的区别 逻辑运算认为所有非零的参数都表示TRUE,参数0表示FALSE.它们返回1或者0，分别表示结果为TURE或者为FALSE.按位运算只有在特殊情况下，也就是参数被限制为0或者">
@@ -195,7 +195,7 @@ classes that you can use:
 <li>补码的范围是不对称的：<br>| TMin I = I TMax I + 1， 也就是说， TMin没有与之对应的正数。</li>
 <li>第二， 最大的无符号数值刚好比补码的最大值的两倍大一点： UMaxw =2TMaxw 十1。<br>补码表示中所有表示负数的位模式在无符号表示中都变成了正数。</li>
 </ol>
-<p>C语言标准并没有要求要用 <em>补码</em> 形式来表示有符号整数， 但是几乎所有的机器都是这么做的。 所以，如果希望代码具有最大的 <em>可移植性</em> ，能够在所有可能的机器上运行，那么除了<img src="en-resource://database/1025:1" alt="73508aa6c408b7cd08f4726473ac8f29.png"><br>所示的那些范围之外， 我们不应该假设任何可表示的数值范围， 也不应该假设有符号数会使用何种特殊的表示方式。<br>另一方面， 许多程序的书写都假设用补码来表示有符号数，并且具有“典型的” 取值范围， 这些程序也能够在大量的机器和编译器上移植。 C库中的文件<strong>＜limtis.h&gt;</strong> 定义了一组常量， 来限定编译器运行的这台机器的不同整型数据类型的取值范围。</p>
+<p>C语言标准并没有要求要用 <em>补码</em> 形式来表示有符号整数， 但是几乎所有的机器都是这么做的。 所以，如果希望代码具有最大的 <em>可移植性</em> ，能够在所有可能的机器上运行，那么除了<img src="https://i.loli.net/2019/02/08/5c5cf73d97774.png" alt="image"><br>所示的那些范围之外， 我们不应该假设任何可表示的数值范围， 也不应该假设有符号数会使用何种特殊的表示方式。<br>另一方面， 许多程序的书写都假设用补码来表示有符号数，并且具有“典型的” 取值范围， 这些程序也能够在大量的机器和编译器上移植。 C库中的文件<strong>＜limtis.h&gt;</strong> 定义了一组常量， 来限定编译器运行的这台机器的不同整型数据类型的取值范围。</p>
 <p>最小值 -2^(w-1)<br>最大值 2^(w-1)-1</p>
 <ul>
 <li>原理： 补码编码的唯一性<br>函数B2T w是一个双射。<br>我们定义函数T2B w（即 “补码到二进制”)作为B2T w的反函数。 也就是说， 对于每个数x, 满足<em>TMin w&lt;=x&lt;=TMax w</em>， 则T2B w(x)是x 的（唯一的）w位模式。</li>
