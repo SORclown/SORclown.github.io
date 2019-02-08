@@ -23,12 +23,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="2.1.7 C语言中的位级运算1.C语言支持按位布尔运算。2.确定位级表达式的结果最好的方法，就是将十六进制的参数扩展成二进制表示并执行二进制运算，然后再转换回十六进制。 2.1.8 C语言中的逻辑运算逻辑运算与位级运算的区别 逻辑运算认为所有非零的参数都表示TRUE,参数0表示FALSE.它们返回1或者0，分别表示结果为TURE或者为FALSE.按位运算只有在特殊情况下，也就是参数被限制为0或者">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:/GitHub/PICUTURE/2.1.png">
 <meta property="og:image" content="en-resource://database/1025:1">
-<meta property="og:updated_time" content="2019-02-07T09:13:10.515Z">
+<meta property="og:updated_time" content="2019-02-08T03:19:56.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解计算机系统》学习笔记-三 | Hexo">
 <meta name="twitter:description" content="2.1.7 C语言中的位级运算1.C语言支持按位布尔运算。2.确定位级表达式的结果最好的方法，就是将十六进制的参数扩展成二进制表示并执行二进制运算，然后再转换回十六进制。 2.1.8 C语言中的逻辑运算逻辑运算与位级运算的区别 逻辑运算认为所有非零的参数都表示TRUE,参数0表示FALSE.它们返回1或者0，分别表示结果为TURE或者为FALSE.按位运算只有在特殊情况下，也就是参数被限制为0或者">
-<meta name="twitter:image" content="en-resource://database/1025:1">
+<meta name="twitter:image" content="c:/GitHub/PICUTURE/2.1.png">
     
     
     
@@ -183,7 +184,7 @@ classes that you can use:
 <ul>
 <li>C 语言支持多种整型数据类型——表示有限范围的整数。<br>每种类型都能用关键字来指定大小， 这些关键字包括 <strong>char、 short 、 long</strong>, 同时还可以指示被表示的数字是非负数 （声明为 <strong>unsigned</strong>), 或者可能是负数（<strong>默认</strong>）。<br>为这些不同的大小分配的字节数根据程序编译为 32 位还是 64 位而有所不同。 根据字节分配， 不同的大小所能表示的值的范围是不同的。<br>这里给出来的<strong>唯一一个</strong>与机器相关的取值范围是大小指示符 <strong>long</strong>的。 大多数 <strong>64 位</strong>机器使用 8 个字节的表示， <strong>32 位</strong>机器上使用的 4 个字节表示。<br>一个很值得注意的特点是取值范围不是对称的负数的范围比整数的范围大1。<br>C 语言标准定义了每种数据类型必须能够表示的最小的取值范围。<br>C和C++都支持有符号（默认）和无符号数。 Java 只支持有符号数。</li>
 </ul>
-<h3 id="2-2-2-无符号数的编码"><a href="#2-2-2-无符号数的编码" class="headerlink" title="2.2.2 无符号数的编码"></a>2.2.2 无符号数的编码</h3><p>原理：无符号数编码的定义<br>对向量x= [X w-I, X w-2, …, X 0]<br>原理：无符号数编码的唯一性<br>函数B2U w 是一个双射。<br>数学术语双射是指一个函数f有两面：它将数值x映射为数值y, 即y=f(x），但它将数值x映射为数值y，即y=f(x),但它也可以反向操作，因为对每一个y而言，都有唯一一个数值x使得f(x)=y。这可以用反函数f^(-1)来表示。<br>在本例中，即x=f^(-1)(y))。函数B2U w 将每一个长度为w的位向量都映射为 0~2^w -1之间的一个唯一值；反过来，我们称其为U2B w（即“无符号数到二进制”), 在0~2^w -1之间的每一个整数都可以映射一个唯一的长度为 w 的位模式。</p>
+<h3 id="2-2-2-无符号数的编码"><a href="#2-2-2-无符号数的编码" class="headerlink" title="2.2.2 无符号数的编码"></a>2.2.2 无符号数的编码</h3><p>原理：无符号数编码的定义<br>对向量x= [X w-I, X w-2, …, X 0]<br>在这个编码中，每个位x, 都取值为0或1, 后一种取值意味着数值 z; 应 为数字值的一部分。我们用一个函数B2队(Binary to Uns igned的缩写，长度为w)来表示：<img src="C:\GitHub\PICUTURE\2.1.png" alt="avatar"><br>原理：无符号数编码的唯一性<br>函数B2U w 是一个双射。<br>数学术语双射是指一个函数f有两面：它将数值x映射为数值y, 即y=f(x），但它将数值x映射为数值y，即y=f(x),但它也可以反向操作，因为对每一个y而言，都有唯一一个数值x使得f(x)=y。这可以用反函数f^(-1)来表示。<br>在本例中，即x=f^(-1)(y))。函数B2U w 将每一个长度为w的位向量都映射为 0~2^w -1之间的一个唯一值；反过来，我们称其为U2B w（即“无符号数到二进制”), 在0~2^w -1之间的每一个整数都可以映射一个唯一的长度为 w 的位模式。</p>
 <h3 id="2-2-3-补码编码"><a href="#2-2-3-补码编码" class="headerlink" title="2.2.3 补码编码"></a>2.2.3 补码编码</h3><ul>
 <li>最常见的有符号数的计算机表示方式就是补码(two’s-complement)形式。</li>
 </ul>
