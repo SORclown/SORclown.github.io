@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      《算法导论》-一 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="第一章 算法在计算中的作用1.1 算法 数据结构：一种存储和阻止数据的方式，旨在便于访问和修改。 并行性：为了从多核及玄机获得最佳的性能，设计算法时必须考虑并行性。  1.2 作为一种技术的算法由于计算时间和储存器中的空间是一种有限资源，所以应该在 时间或空间 方面有效的算法有助于使用它们。  效率 算法与其他技术：算法也算作一种技术。  第二章 算法基础2.1 插入排序循环不变式：三条性质：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《算法导论》-一 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/02/11/《算法导论》-一/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 算法在计算中的作用1.1 算法 数据结构：一种存储和阻止数据的方式，旨在便于访问和修改。 并行性：为了从多核及玄机获得最佳的性能，设计算法时必须考虑并行性。  1.2 作为一种技术的算法由于计算时间和储存器中的空间是一种有限资源，所以应该在 时间或空间 方面有效的算法有助于使用它们。  效率 算法与其他技术：算法也算作一种技术。  第二章 算法基础2.1 插入排序循环不变式：三条性质：">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-14T11:58:18.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《算法导论》-一 | Hexo">
+<meta name="twitter:description" content="第一章 算法在计算中的作用1.1 算法 数据结构：一种存储和阻止数据的方式，旨在便于访问和修改。 并行性：为了从多核及玄机获得最佳的性能，设计算法时必须考虑并行性。  1.2 作为一种技术的算法由于计算时间和储存器中的空间是一种有限资源，所以应该在 时间或空间 方面有效的算法有助于使用它们。  效率 算法与其他技术：算法也算作一种技术。  第二章 算法基础2.1 插入排序循环不变式：三条性质：">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">《算法导论》-一</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-02-11" class="post-meta__date date">2019-02-11</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="第一章-算法在计算中的作用"><a href="#第一章-算法在计算中的作用" class="headerlink" title="第一章 算法在计算中的作用"></a>第一章 算法在计算中的作用</h1><h2 id="1-1-算法"><a href="#1-1-算法" class="headerlink" title="1.1 算法"></a>1.1 算法</h2><ul>
+<li><strong>数据结构</strong>：一种存储和阻止数据的方式，旨在便于访问和修改。</li>
+<li><strong>并行性</strong>：为了从多核及玄机获得最佳的性能，设计算法时必须考虑并行性。</li>
+</ul>
+<h2 id="1-2-作为一种技术的算法"><a href="#1-2-作为一种技术的算法" class="headerlink" title="1.2 作为一种技术的算法"></a>1.2 作为一种技术的算法</h2><p>由于计算时间和储存器中的空间是一种有限资源，所以应该在 <em>时间或空间</em> 方面有效的算法有助于使用它们。</p>
+<ul>
+<li><strong>效率</strong></li>
+<li><strong>算法与其他技术</strong>：算法也算作一种技术。</li>
+</ul>
+<h1 id="第二章-算法基础"><a href="#第二章-算法基础" class="headerlink" title="第二章 算法基础"></a>第二章 算法基础</h1><h2 id="2-1-插入排序"><a href="#2-1-插入排序" class="headerlink" title="2.1 插入排序"></a>2.1 插入排序</h2><h4 id="循环不变式："><a href="#循环不变式：" class="headerlink" title="循环不变式："></a>循环不变式：</h4><p>三条性质：</p>
+<ul>
+<li>初始化：保证在初始的时候不变式为真。</li>
+<li>保持：保证在每次循环开始和结束的时候不变式都为真。</li>
+<li>终止：当循环结束时，不变式给了我们一个有用的性质，它有助于表明算法是正确的。</li>
+</ul>
+<p>伪代码的一些约定：</p>
+<ul>
+<li>缩进表示块结构。</li>
+<li>for循环每次迭代<strong>增加</strong>其计数器时，使用关键词<strong>to</strong>；当一个for循环每次迭代<strong>减少</strong>其循环计数器时，使用关键词<strong>downto</strong>。当循环计数器以<strong>大于1</strong>的一个量改变时，该变量可选关键词<strong>by</strong>.</li>
+<li>符号”//“表示注释。</li>
+<li>i=j=e 等价于 j=e;i=j;</li>
+<li>变量（除显式说明）采用局部变量。</li>
+<li>复合数据通常被组织成<strong>对象</strong>，对象又由属性组成。访问特定的属性：对象名后跟一个点再跟属性名。如：A.length表示数组A中的元素数目。</li>
+<li>我们按值把参数传递给过程：被调用过程接收其参数自身的副本。（？）</li>
+<li>return语句将控制点返回调用过程的调用点。大多数return语句返回一个值，但在伪代码中，允许单一的return语句中返回多个值。</li>
+<li>布尔运算符”and”和”or”都是短路的。</li>
+<li>关键词<strong>error</strong>表示因为已被调用的过程情况不对而出现了一个错误。</li>
+</ul>
+<h2 id="2-2-分析算法"><a href="#2-2-分析算法" class="headerlink" title="2.2 分析算法"></a>2.2 分析算法</h2><p>分析算法的结果意味着预测算法需要的资源。<br>前提：必须有一个要使用的实现技术的模型，包括描述所用资源及其代价的模型。</p>
+<h4 id="RAM模型"><a href="#RAM模型" class="headerlink" title="RAM模型"></a>RAM模型</h4><p>在RAM模型中，指令一条接一条地执行，没有并发操作。<br>RAM模型包含真实计算机中常见的指令：算术指令（如 加法、减法、乘法、除法、取余）、数据移动指令（装入、存储、复制）和控制指令（条件与无条件转移、子程序调用与返回）。每条这样的指令所用的<em>时间都为常量</em>。<br>RAM模型中的<strong>数据类型</strong>由整数型和浮点实数型。</p>
+<h4 id="插入排序法的分析"><a href="#插入排序法的分析" class="headerlink" title="插入排序法的分析"></a>插入排序法的分析</h4><p>一般来说，算法需要的时间与输入的规模同步增长，所以通常把一个程序的运行时间描述成其输入规模的函数。<br>输入规模的最佳概念依赖于研究的问题。<br>一个算法子在特定的输入上运行时间是指执行的基本操作或步数。<br>即使对给定规模的输入，一个算法的运行时间也可能依赖于给定的是该规模下的哪个输入。</p>
+<h4 id="最坏情况与平均情况分析"><a href="#最坏情况与平均情况分析" class="headerlink" title="最坏情况与平均情况分析"></a>最坏情况与平均情况分析</h4><ul>
+<li>一个算法的最坏情况运行时间给出了任何输入的运行时间的一个上界。</li>
+<li>对于某些算法，最坏情况经常出现。</li>
+<li>”平均情况”往往与最坏情况大致一样差。</li>
+</ul>
+<h4 id="增长量级"><a href="#增长量级" class="headerlink" title="增长量级"></a>增长量级</h4><p>运行时间的增长率或增长量级。<br>如果一个算法的最坏情况运行时间具有比另一个算法更低的增长量级，我们通常认为前者比后者更有效。<br>由于常量因子和低阶项，对于小的输入，运行时间具有较高增长量级的一个算法与运行时间具有较低增长量级的另一个算法相比，其可能需要较少的时间。但是对足够大的输入，增长量级低的算法运行的更快。</p>
+<h2 id="2-3-设计算法"><a href="#2-3-设计算法" class="headerlink" title="2.3 设计算法"></a>2.3 设计算法</h2><p>可以选择使用的算法设计技术有很多。<br>插入排序法使用了 <em>增量</em>  方法：在排序子数组A【1.。j-1]后，将当个元素A[j]插入子数组的适当位置，产生排序好的子数组A[1..j].</p>
+<h3 id="2-3-1-分治法"><a href="#2-3-1-分治法" class="headerlink" title="2.3.1 分治法"></a>2.3.1 分治法</h3><p>优点：</p>
+<ol>
+<li>该算法的最坏情况运行时间比插入排序要少得多。</li>
+<li>通过第四章介绍的技术往往很容易确定其运行时间。</li>
+</ol>
+<p><strong>递归</strong>：为了解决给定的问题，算法一次或多次递归地调用其自身以解决紧密相关的若干子问题。</p>
+<p><strong>分治法</strong>的思想：将原问题分解为几个规模较小但类似于原问题的子问题，递归地求解和吸热子问题，然后再合并这些子问题地界来建立原问题的解。</p>
+<p>分治法每层递归都有三个步骤：<br><strong>分解</strong>原问题为若干子问题，这些子问题是原问题的规模较小的实例。<br><strong>解决</strong>这些子问题，递归的求解各子问题。若子问题的规模足够小，则直接求解。<br><strong>合并</strong>这些子问题的解成原问题的解。</p>
+<h3 id="2-3-2-分析分治算法"><a href="#2-3-2-分析分治算法" class="headerlink" title="2.3.2 分析分治算法"></a>2.3.2 分析分治算法</h3><p>当一个算法包含对其自身的递归调用时，可以用 <strong>递归方程</strong> 或 <strong>递归式</strong>来描述其运行时间，该方程再较小输入上的运行时间来描述再规模为n的问题上的总运行时间。</p>
+<h4 id="归并排序算法的分析"><a href="#归并排序算法的分析" class="headerlink" title="归并排序算法的分析"></a>归并排序算法的分析</h4>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

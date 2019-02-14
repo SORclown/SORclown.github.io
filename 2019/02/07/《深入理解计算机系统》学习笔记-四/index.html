@@ -16,14 +16,21 @@
     
     
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="2.2.4有符号数和无符号数之间的转换 C语言允许在不同的数据类型之间做强制类型转换。 对于大多数C语言的实现， 处理同样字长的有符号数和无符号数之间相互转换的一般规则是：数值可能会改变， 但是位模式不变。  将 short强制类型转换为unsigned short江改变数值， 但是不改变位表示。将 unsigned 强制类型转换成 int, 底层的位 表示保持不变。 2.2.5 C语言中的有符号">
+<meta property="og:type" content="article">
 <meta property="og:title" content="《深入理解计算机系统》学习笔记-四 | Hexo">
 <meta property="og:url" content="http://yoursite.com/2019/02/07/《深入理解计算机系统》学习笔记-四/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2.2.4有符号数和无符号数之间的转换 C语言允许在不同的数据类型之间做强制类型转换。 对于大多数C语言的实现， 处理同样字长的有符号数和无符号数之间相互转换的一般规则是：数值可能会改变， 但是位模式不变。  将 short强制类型转换为unsigned short江改变数值， 但是不改变位表示。将 unsigned 强制类型转换成 int, 底层的位 表示保持不变。 2.2.5 C语言中的有符号">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-07T09:24:22.197Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5cf73d981ea.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/14/5c65588594bb9.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/14/5c65588589cb3.png">
+<meta property="og:updated_time" content="2019-02-14T12:05:12.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解计算机系统》学习笔记-四 | Hexo">
+<meta name="twitter:description" content="2.2.4有符号数和无符号数之间的转换 C语言允许在不同的数据类型之间做强制类型转换。 对于大多数C语言的实现， 处理同样字长的有符号数和无符号数之间相互转换的一般规则是：数值可能会改变， 但是位模式不变。  将 short强制类型转换为unsigned short江改变数值， 但是不改变位表示。将 unsigned 强制类型转换成 int, 底层的位 表示保持不变。 2.2.5 C语言中的有符号">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/08/5c5cf73d981ea.png">
     
     
     
@@ -168,7 +175,38 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    
+    <h3 id="2-2-4有符号数和无符号数之间的转换"><a href="#2-2-4有符号数和无符号数之间的转换" class="headerlink" title="2.2.4有符号数和无符号数之间的转换"></a>2.2.4有符号数和无符号数之间的转换</h3><ul>
+<li>C语言允许在不同的数据类型之间做强制类型转换。</li>
+<li>对于大多数C语言的实现， 处理同样字长的有符号数和无符号数之间相互转换的一般规则是：数值可能会改变， 但是位模式不变。</li>
+</ul>
+<p>将 short强制类型转换为unsigned short江改变数值， 但是不改变位表示。<br>将 unsigned 强制类型转换成 int, 底层的位 表示保持不变。<br><img src="https://i.loli.net/2019/02/08/5c5cf73d981ea.png" alt="image"></p>
+<h3 id="2-2-5-C语言中的有符号数与无符号数"><a href="#2-2-5-C语言中的有符号数与无符号数" class="headerlink" title="2.2.5 C语言中的有符号数与无符号数"></a>2.2.5 C语言中的有符号数与无符号数</h3><ul>
+<li>C语言支持所有整形数据类型的有符号和无符号运算。</li>
+<li>尽管没有指定表示，但是几乎所有的机器都是用补码表示有符号数。<br>通常，大多数数字被默认为有符号数。</li>
+<li>对于 C 语言中有符号数与无符号数之间的转换，大多数系统遵循的原则是底层的位表示不变。</li>
+<li>当同时有无符号数和有符号数同时参与运算时，C语言会隐式的将所有有符号参数强制转化为无符号数，并假设这两个数都是非负的，来执行运算。</li>
+</ul>
+<p>零碎知识：</p>
+<ol>
+<li>%d,%u,%x 分别表示 有符号十进制，无符号十进制，十六进制 格式输出一个数字。</li>
+</ol>
+<h3 id="2-2-6-扩展一个数字的位表示"><a href="#2-2-6-扩展一个数字的位表示" class="headerlink" title="2.2.6 扩展一个数字的位表示"></a>2.2.6 扩展一个数字的位表示</h3><p>从一个较小的数据类型转换带一个较大的类型，是可能的。</p>
+<ul>
+<li><strong>零扩展</strong>（zero extension): 在表示的开头添加0，使得一个无符号数转换成为一个更大的数据类型。<br><img src="https://i.loli.net/2019/02/14/5c65588594bb9.png" alt="image"><br>执行一个符号扩展（sign extension）可以将一个补码数字转换为一个更大的数据类型，在表示中添加最高有效位的值。<br><img src="https://i.loli.net/2019/02/14/5c65588589cb3.png" alt="image"></li>
+</ul>
+<p>零碎知识：<br>逻辑位移是移动数字的所有物理比特位。<br>算数位移是对数字除了符号位以外的比特位进行位移，符号位保持不变。</p>
+<h3 id="2-2-7-截断数字"><a href="#2-2-7-截断数字" class="headerlink" title="2.2.7 截断数字"></a>2.2.7 截断数字</h3><h3 id="2-2-8-关于有符号数与无符号数的建议"><a href="#2-2-8-关于有符号数与无符号数的建议" class="headerlink" title="2.2.8 关于有符号数与无符号数的建议"></a>2.2.8 关于有符号数与无符号数的建议</h3><p>有符号数到无符号数的隐式强制转换会导致某些非直观的行为。<br>非直观的特性会导致程序错误。</p>
+<h2 id="2-3整数运算"><a href="#2-3整数运算" class="headerlink" title="2.3整数运算"></a>2.3整数运算</h2><p> 计算机运算的有限性</p>
+<h3 id="2-3-1-无符号加法"><a href="#2-3-1-无符号加法" class="headerlink" title="2.3.1 无符号加法"></a>2.3.1 无符号加法</h3><ul>
+<li><p>lisp 支持<em>无限进度</em>的运算，允许任意的（内存限制之内）整数运算。<br>大部分编程语言支持固定精度的运算，所以“加法“和”乘法“不同于整数相应运算。<br>！<a href="https://i.loli.net/2019/02/14/5c6558858b6d5.png" target="_blank" rel="noopener">image</a></p>
+</li>
+<li><p>算术运算溢出：是指完整的整数结果不能放到数据类型的字长限制中去。</p>
+</li>
+</ul>
+<ul>
+<li>无符号数求反<br>![image]（<a href="https://i.loli.net/2019/02/14/5c65588577a07.png）" target="_blank" rel="noopener">https://i.loli.net/2019/02/14/5c65588577a07.png）</a></li>
+</ul>
+
   </section>
 
   <section class="post-comments">
