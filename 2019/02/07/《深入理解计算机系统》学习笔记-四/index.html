@@ -26,7 +26,12 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/08/5c5cf73d981ea.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/14/5c65588594bb9.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/14/5c65588589cb3.png">
-<meta property="og:updated_time" content="2019-02-14T12:05:12.760Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/14/5c6558858b6d5.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a01c763b0a.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a087adbe77.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a087ac2173.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a087ac554a.png">
+<meta property="og:updated_time" content="2019-02-18T01:22:01.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解计算机系统》学习笔记-四 | Hexo">
 <meta name="twitter:description" content="2.2.4有符号数和无符号数之间的转换 C语言允许在不同的数据类型之间做强制类型转换。 对于大多数C语言的实现， 处理同样字长的有符号数和无符号数之间相互转换的一般规则是：数值可能会改变， 但是位模式不变。  将 short强制类型转换为unsigned short江改变数值， 但是不改变位表示。将 unsigned 强制类型转换成 int, 底层的位 表示保持不变。 2.2.5 C语言中的有符号">
@@ -198,14 +203,18 @@ classes that you can use:
 <h3 id="2-2-7-截断数字"><a href="#2-2-7-截断数字" class="headerlink" title="2.2.7 截断数字"></a>2.2.7 截断数字</h3><h3 id="2-2-8-关于有符号数与无符号数的建议"><a href="#2-2-8-关于有符号数与无符号数的建议" class="headerlink" title="2.2.8 关于有符号数与无符号数的建议"></a>2.2.8 关于有符号数与无符号数的建议</h3><p>有符号数到无符号数的隐式强制转换会导致某些非直观的行为。<br>非直观的特性会导致程序错误。</p>
 <h2 id="2-3整数运算"><a href="#2-3整数运算" class="headerlink" title="2.3整数运算"></a>2.3整数运算</h2><p> 计算机运算的有限性</p>
 <h3 id="2-3-1-无符号加法"><a href="#2-3-1-无符号加法" class="headerlink" title="2.3.1 无符号加法"></a>2.3.1 无符号加法</h3><ul>
-<li><p>lisp 支持<em>无限进度</em>的运算，允许任意的（内存限制之内）整数运算。<br>大部分编程语言支持固定精度的运算，所以“加法“和”乘法“不同于整数相应运算。<br>！<a href="https://i.loli.net/2019/02/14/5c6558858b6d5.png" target="_blank" rel="noopener">image</a></p>
+<li><p>lisp 支持<em>无限进度</em>的运算，允许任意的（内存限制之内）整数运算。<br>大部分编程语言支持固定精度的运算，所以“加法“和”乘法“不同于整数相应运算。<br><img src="https://i.loli.net/2019/02/14/5c6558858b6d5.png" alt="image"></p>
 </li>
 <li><p>算术运算溢出：是指完整的整数结果不能放到数据类型的字长限制中去。</p>
 </li>
 </ul>
 <ul>
-<li>无符号数求反<br>![image]（<a href="https://i.loli.net/2019/02/14/5c65588577a07.png）" target="_blank" rel="noopener">https://i.loli.net/2019/02/14/5c65588577a07.png）</a></li>
+<li>无符号数求反<br>![image]（<a href="https://i.loli.net/2019/02/18/5c69ff9e69710.png）" target="_blank" rel="noopener">https://i.loli.net/2019/02/18/5c69ff9e69710.png）</a></li>
 </ul>
+<h3 id="2-3-2-补码加法"><a href="#2-3-2-补码加法" class="headerlink" title="2.3.2 补码加法"></a>2.3.2 补码加法</h3><p><img src="https://i.loli.net/2019/02/18/5c6a01c763b0a.png" alt="image"></p>
+<p>通过上式知道何时会发生溢出<br><img src="https://i.loli.net/2019/02/18/5c6a087adbe77.png" alt="image"></p>
+<h3 id="2-3-3-补码的非"><a href="#2-3-3-补码的非" class="headerlink" title="2.3.3 补码的非"></a>2.3.3 补码的非</h3><p><img src="https://i.loli.net/2019/02/18/5c6a087ac2173.png" alt="image"></p>
+<h3 id="2-3-4-无符号乘法"><a href="#2-3-4-无符号乘法" class="headerlink" title="2.3.4 无符号乘法"></a>2.3.4 无符号乘法</h3><p><img src="https://i.loli.net/2019/02/18/5c6a087ac554a.png" alt="image"></p>
 
   </section>
 
