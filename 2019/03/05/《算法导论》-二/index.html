@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      《算法导论》-二 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="第三章 函数的增长当输入规模足够大，使得只有运行时间的增长量级有关时，研究算法渐进效率——当输入规模无限增加时，在极限中，算法的运行时间如何随着输入规模的变大而增加。通常，渐进地更有效的某个算法对除了很小地输入外地所有情况将是最好地选择。 3.1 渐进记号渐进记号、函数与运行时间渐进记号主要用来描述算法的运行时间，同时也适用于刻画算法的某个其他方面（如 算法使用的空间数量）的函数，甚至可以适用于和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《算法导论》-二 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/05/《算法导论》-二/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章 函数的增长当输入规模足够大，使得只有运行时间的增长量级有关时，研究算法渐进效率——当输入规模无限增加时，在极限中，算法的运行时间如何随着输入规模的变大而增加。通常，渐进地更有效的某个算法对除了很小地输入外地所有情况将是最好地选择。 3.1 渐进记号渐进记号、函数与运行时间渐进记号主要用来描述算法的运行时间，同时也适用于刻画算法的某个其他方面（如 算法使用的空间数量）的函数，甚至可以适用于和">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-04T10:18:57.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《算法导论》-二 | Hexo">
+<meta name="twitter:description" content="第三章 函数的增长当输入规模足够大，使得只有运行时间的增长量级有关时，研究算法渐进效率——当输入规模无限增加时，在极限中，算法的运行时间如何随着输入规模的变大而增加。通常，渐进地更有效的某个算法对除了很小地输入外地所有情况将是最好地选择。 3.1 渐进记号渐进记号、函数与运行时间渐进记号主要用来描述算法的运行时间，同时也适用于刻画算法的某个其他方面（如 算法使用的空间数量）的函数，甚至可以适用于和">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">《算法导论》-二</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-03-05" class="post-meta__date date">2019-03-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="第三章-函数的增长"><a href="#第三章-函数的增长" class="headerlink" title="第三章 函数的增长"></a>第三章 函数的增长</h1><p>当输入规模足够大，使得只有运行时间的增长量级有关时，研究算法<strong>渐进效率</strong>——当输入规模无限增加时，在极限中，算法的运行时间如何随着输入规模的变大而增加。<br>通常，渐进地更有效的某个算法对除了很小地输入外地所有情况将是最好地选择。</p>
+<h2 id="3-1-渐进记号"><a href="#3-1-渐进记号" class="headerlink" title="3.1 渐进记号"></a>3.1 渐进记号</h2><h4 id="渐进记号、函数与运行时间"><a href="#渐进记号、函数与运行时间" class="headerlink" title="渐进记号、函数与运行时间"></a>渐进记号、函数与运行时间</h4><p>渐进记号主要用来描述算法的运行时间，同时也适用于刻画算法的某个其他方面（如 算法使用的空间数量）的函数，甚至可以适用于和算法没有关系的函数。</p>
+<h4 id="Θ记号"><a href="#Θ记号" class="headerlink" title="Θ记号"></a>Θ记号</h4><p>Θ记号渐进地给出一个函数地上界和下界。</p>
+<p>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfb6919e01.png" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfb6919e01.png</a>)</p>
+<h4 id="Ο记号"><a href="#Ο记号" class="headerlink" title="Ο记号"></a>Ο记号</h4><p>Ο记号提供了一个函数的渐进上界。</p>
+<p>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfb7633fdc.png" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfb7633fdc.png</a>)</p>
+<p>使用Ο记号，可以通过检查算法地总体结构来描述算法地运行时间。同时，用Ο记号限制算法地最坏运行时间时，关于算法在每个输入上的运行时间，也会存在一个界。</p>
+<h4 id="Ω记号"><a href="#Ω记号" class="headerlink" title="Ω记号"></a>Ω记号</h4><p>Ω记号提供了一个函数的渐进下界。当称一个算法的运行时间为Ω（g(n)）时，我们意指对每个n值，不管选择什么特定规模为n的输入，只要n足够大，对那个输入的运行时间至少时g（n）的常量倍。等价地，我们在对一个算法的最好情况运行时间给出一个下界。</p>
+<p>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfb875f356.png" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfb875f356.png</a>)</p>
+<p>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfb346254a.png" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfb346254a.png</a>)</p>
+<h4 id="等式和不等式中的渐进记号"><a href="#等式和不等式中的渐进记号" class="headerlink" title="等式和不等式中的渐进记号"></a>等式和不等式中的渐进记号</h4><p>数学公式中的 Θ记号 的解释为 代表某个我们不关注名称的匿名函数。<br>一个表达式中匿名函数的数目可以理解为等于渐进记号出现的次数。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

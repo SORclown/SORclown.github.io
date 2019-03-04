@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      《深入理解计算机系统》学习笔记-五 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="2.3.5 补码乘法 无符号和补码乘法的位级等价性: 2.3.6 乘以常数以往的大多数机器上，整数乘法指令相当慢，需要10个或者更多的时钟周期，然而其他整数运算（如 加法、减法】位级运算和位移）只需要1个时钟周期。 编译器会试着用位移和加法运算的组合来代替乘以常熟因子的乘法。![image]（https://i.loli.net/2019/03/04/5c7cfa482353f.png）  由于整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入理解计算机系统》学习笔记-五 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/05/《深入理解计算机系统》学习笔记-五/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2.3.5 补码乘法 无符号和补码乘法的位级等价性: 2.3.6 乘以常数以往的大多数机器上，整数乘法指令相当慢，需要10个或者更多的时钟周期，然而其他整数运算（如 加法、减法】位级运算和位移）只需要1个时钟周期。 编译器会试着用位移和加法运算的组合来代替乘以常熟因子的乘法。![image]（https://i.loli.net/2019/03/04/5c7cfa482353f.png）  由于整">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a1cb2ce637.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a1d1715db5.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/04/5c7ce24ec50c7.png">
+<meta property="og:updated_time" content="2019-03-04T10:16:25.080Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《深入理解计算机系统》学习笔记-五 | Hexo">
+<meta name="twitter:description" content="2.3.5 补码乘法 无符号和补码乘法的位级等价性: 2.3.6 乘以常数以往的大多数机器上，整数乘法指令相当慢，需要10个或者更多的时钟周期，然而其他整数运算（如 加法、减法】位级运算和位移）只需要1个时钟周期。 编译器会试着用位移和加法运算的组合来代替乘以常熟因子的乘法。![image]（https://i.loli.net/2019/03/04/5c7cfa482353f.png）  由于整">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/18/5c6a1cb2ce637.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">《深入理解计算机系统》学习笔记-五</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-03-05" class="post-meta__date date">2019-03-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="2-3-5-补码乘法"><a href="#2-3-5-补码乘法" class="headerlink" title="2.3.5 补码乘法"></a>2.3.5 补码乘法</h3><p><img src="https://i.loli.net/2019/02/18/5c6a1cb2ce637.png" alt="image"></p>
+<p>无符号和补码乘法的位级等价性:<br><img src="https://i.loli.net/2019/02/18/5c6a1d1715db5.png" alt="image"></p>
+<h3 id="2-3-6-乘以常数"><a href="#2-3-6-乘以常数" class="headerlink" title="2.3.6 乘以常数"></a>2.3.6 乘以常数</h3><p>以往的大多数机器上，整数乘法指令相当慢，需要10个或者更多的时钟周期，然而其他整数运算（如 加法、减法】位级运算和位移）只需要1个时钟周期。</p>
+<p>编译器会试着用位移和加法运算的组合来代替乘以常熟因子的乘法。<br>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfa482353f.png）" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfa482353f.png）</a></p>
+<p><img src="https://i.loli.net/2019/03/04/5c7ce24ec50c7.png" alt="image"></p>
+<p>由于整数乘法比位移和加法的代价要大得多，许多C语言编译器试图以位移、加法和减法的组合来消除很多整数除以常数的情况。<br>比如：x* 14=2^3+2^2+2^1=2^4-2^1<br>编译器会将乘法重写为（x&lt;&lt;3)+(x&lt;&lt;2)+(x&lt;&lt;1) 或(x&lt;&lt;4)-(x&lt;&lt;1)</p>
+<h3 id="2-3-7-除以2的幂"><a href="#2-3-7-除以2的幂" class="headerlink" title="2.3.7 除以2的幂"></a>2.3.7 除以2的幂</h3><p>大多数机器上，整数除法要比整数乘法更慢——需要30个或者更多的时钟周期。<br>除以2的幂也可以用位移（右移)运算来实现；无符号和补码分别使用逻辑位移和算术位移来达到目的。</p>
+<p>整数除法总是舍入到零。<br>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfa74e43f1.jpg）" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfa74e43f1.jpg）</a></p>
+<p>通过位移前“偏置”这个值，可惜修正不合适的舍入。<br>![image]（<a href="https://i.loli.net/2019/03/04/5c7cfad7d1ab9.jpg）" target="_blank" rel="noopener">https://i.loli.net/2019/03/04/5c7cfad7d1ab9.jpg）</a></p>
+<h3 id="2-3-8-关于整数运算的最后思考"><a href="#2-3-8-关于整数运算的最后思考" class="headerlink" title="2.3.8 关于整数运算的最后思考"></a>2.3.8 关于整数运算的最后思考</h3><p> 计算机执行的 “整数” 运算实际上是一种模运算形式。 表示数字的有限字长限制了可能的值的取值范围， 结果运算可能溢出。<br> 补码表示提供了 一种既能表示负数也能表示正数的灵活方法， 同时使用了与执行无符号算术相同的位级实现， 这些运算包括像加法、 减法、 乘法， 甚至除法， 无论运算数是以无符号形式还是以补码形式表示的， 都有完全一样或者非常类似的位级行为。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
